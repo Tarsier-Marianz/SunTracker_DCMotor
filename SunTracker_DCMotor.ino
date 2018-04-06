@@ -1,5 +1,4 @@
-//const int TOL               = 10; // steps tolerance
-const int TOL               = 0;    // steps tolerance
+const int TOL               = 5;    // steps tolerance
 const int VERT_PADDING      = 10;   // vertical padding (40 in indoor testing)
 const int HORZ_PADDING      = 20;   // horizontal padding (40 in indoor testing)
 const int VERT_MAX_DEGREE   = 120;  // -160+ vertical maximum degree
@@ -17,12 +16,12 @@ int sensorDR                = A3; //LDR down right
 
 boolean RESET_DEGREE        = true; //state of reset degree value if exceed maximum
 // motor controller pinouts
-//int ENA = 5;
+//int ENA                     = 5;
 int IN1                     = 6;
 int IN2                     = 7;
 int IN3                     = 8;
 int IN4                     = 9;
-//int ENB = 10;
+//int ENB                     = 10;
 
 void setup() {
   // initialize the serial port:
@@ -77,7 +76,6 @@ void loop() {
   printValues( lt,  rt,  ld,  rd,  avt,  avd,  avl,  avr);
 }
 
-
 void setVerticalSteps(boolean up, int padding) {
   vertPadding = padding;
   if (up) {
@@ -100,6 +98,7 @@ void setVerticalSteps(boolean up, int padding) {
     delay(14);
   }
 }
+
 void setHorizontalSteps(boolean right, int padding) {
   horzPadding = padding;
   if (right) {
