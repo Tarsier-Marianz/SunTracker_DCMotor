@@ -37,8 +37,9 @@ void setup() {
 }
 
 void initialize() {
-
+  // @TODO for motor calibration
 }
+
 void loop() {
   int lt = analogRead(sensorTL); // top left
   int rt = analogRead(sensorTR); // top right
@@ -73,28 +74,7 @@ void loop() {
       stopMotor(false);
     }
   }
-
-  Serial.print(vertDegree); Serial.print("\t");
-  Serial.print(horzDegree); Serial.print("\t");
-  Serial.print("\t");
-
-  Serial.print(lt); Serial.print("\t");
-  Serial.print(rt); Serial.print("\t");
-  Serial.print(ld); Serial.print("\t");
-  Serial.print(rd); Serial.print("\t");
-  Serial.print("\t");
-
-  Serial.print(avt); Serial.print("\t");
-  Serial.print(avd); Serial.print("\t");
-  Serial.print(avl); Serial.print("\t");
-  Serial.print(avr); Serial.print("\t");
-  Serial.print("\t");
-
-  Serial.print(vertPadding); Serial.print("\t");
-  Serial.print(horzPadding); Serial.print("\t");
-  Serial.println();
-
-  //delay(100);
+  printValues( lt,  rt,  ld,  rd,  avt,  avd,  avl,  avr);
 }
 
 
@@ -170,5 +150,27 @@ void resetDegree(boolean vertical) {
   } else {
     horzDegree = 0;
   }
+}
+
+void printValues(int lt, int rt, int ld, int rd, int avt, int avd, int avl, int avr) {
+  Serial.print(vertDegree); Serial.print("\t");
+  Serial.print(horzDegree); Serial.print("\t");
+  Serial.print("\t");
+
+  Serial.print(lt); Serial.print("\t");
+  Serial.print(rt); Serial.print("\t");
+  Serial.print(ld); Serial.print("\t");
+  Serial.print(rd); Serial.print("\t");
+  Serial.print("\t");
+
+  Serial.print(avt); Serial.print("\t");
+  Serial.print(avd); Serial.print("\t");
+  Serial.print(avl); Serial.print("\t");
+  Serial.print(avr); Serial.print("\t");
+  Serial.print("\t");
+
+  Serial.print(vertPadding); Serial.print("\t");
+  Serial.print(horzPadding); Serial.print("\t");
+  Serial.println();
 }
 
